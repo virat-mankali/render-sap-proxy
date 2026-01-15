@@ -1,0 +1,15 @@
+{
+  "name": "sap-proxy",
+  "version": "1.0.0",
+  "description": "SAP API Proxy for handling self-signed certificates",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
