@@ -7,13 +7,25 @@ app.use(express.json());
 // CORS headers
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
   res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   
   if (req.method === 'OPTIONS') {
     return res.sendStatus(200);
   }
   next();
+});
+
+// Root endpoint - for testing
+app.get('/', (req, res) => {
+  res.json({ 
+    status: 'ok', 
+    message: 'SAP Proxy is running',
+    endpoints: {
+      health: 'GET /health',
+      sapProxy: 'POST /'
+    }
+  });
 });
 
 // SAP Proxy endpoint
